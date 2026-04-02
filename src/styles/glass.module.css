@@ -1,0 +1,245 @@
+/* ===== Widget Outer Frame ===== */
+.wOuter {
+  position: absolute;
+  border-radius: var(--outer-radius);
+  box-shadow: var(--shadow-default);
+  transition: box-shadow 0.4s;
+  overflow: hidden;
+  /* Force WebKit to respect border-radius clipping on children */
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+  isolation: isolate;
+}
+
+.wOuter:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+/* Layer 0: translucent frame base — very transparent to show wallpaper */
+.wOuterGlass {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--outer-radius);
+  background: var(--scene-frame, rgba(10, 12, 18, 0.18));
+}
+
+/* Layer 1: outer fill */
+.wOuterFill {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--outer-radius);
+  background: rgba(255, 255, 255, 0.015);
+}
+
+/* Layer 2: outer border (scene-colored) */
+.wOuterBorder {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--outer-radius);
+  border: 0.5px solid var(--scene-border);
+  transition: border-color 0.8s;
+}
+
+/* Top highlight line (scene-colored via --scene-highlight) */
+.wOuterBorder::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 14%;
+  right: 14%;
+  height: 0.5px;
+  border-radius: 1px;
+  background: var(--scene-highlight, linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent));
+  transition: background 0.8s;
+}
+
+/* ===== Widget Inner Panel (frosted glass body) ===== */
+.wInner {
+  position: absolute;
+  inset: var(--frame-inset);
+  border-radius: var(--inner-radius);
+  overflow: hidden;
+}
+
+/* Layer 3: scene-colored base — each scene defines its own --scene-base */
+.wBlur {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--inner-radius);
+  background: var(--scene-base, rgba(14, 16, 22, 0.42));
+}
+
+/* Layer 4: frost — subtle cool highlight */
+.wFrost {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--inner-radius);
+  background: rgba(160, 170, 185, 0.05);
+}
+
+/* Layer 5: scene tint */
+.wTint {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--inner-radius);
+  background: var(--scene-tint);
+  transition: background 1.4s ease;
+}
+
+/* Layer 6: noise texture */
+.wNoise {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--inner-radius);
+  background: url('../assets/noise.svg');
+  background-size: 180px 180px;
+  opacity: 0.06;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+/* Layer 7: sheen — glass specular highlight */
+.wSheen {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--inner-radius);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.015) 30%, transparent 55%),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 0%, transparent 35%);
+  pointer-events: none;
+}
+
+/* Layer 8: weather canvas */
+.wWeather {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--inner-radius);
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Inner panel gradient border */
+.wInner::before {
+  content: '';
+  position: absolute;
+  inset: -0.5px;
+  border-radius: 15.5px;
+  padding: 0.5px;
+  background: linear-gradient(
+    170deg,
+    rgba(255, 255, 255, 0.12) 0%,
+    rgba(255, 255, 255, 0.03) 50%,
+    rgba(255, 255, 255, 0.015) 100%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Content layer */
+.wContent {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--inner-radius);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  transition: padding 0.15s;
+  cursor: grab;
+}
+
+.wContent:active {
+  cursor: grabbing;
+}
+
+/* Interactive elements override grab cursor */
+.wContent button,
+.wContent input,
+.wContent textarea,
+.wContent select {
+  cursor: pointer;
+}
+
+.wContent input[type="text"],
+.wContent input[type="date"],
+.wContent textarea {
+  cursor: text;
+}
+
+/* ===== Resize handle ===== */
+.wResizeHotzone {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 28px;
+  height: 28px;
+  cursor: nwse-resize;
+  z-index: 10;
+}
+
+.wResizeIcon {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.wOuter:hover .wResizeIcon {
+  opacity: 0.35;
+}
+
+.wResizeIcon::before,
+.wResizeIcon::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.wResizeIcon::before {
+  width: 10px;
+  height: 10px;
+  border-radius: 0 0 6px 0;
+}
+
+.wResizeIcon::after {
+  width: 5px;
+  height: 5px;
+  border-radius: 0 0 3px 0;
+}
+
+/* ===== Collapsed bubble ===== */
+.wCollapsed {
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--scene-base, rgba(15, 18, 24, 0.6));
+  box-shadow:
+    0 0 10px var(--scene-bubble-glow),
+    0 2px 6px rgba(0, 0, 0, 0.3);
+  transition: transform 0.25s;
+  /* Force circle clip — no corner leaks */
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+}
+
+.wCollapsed:hover {
+  transform: scale(1.12);
+}
+
+.wOrbDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--scene-bubble);
+  box-shadow: 0 0 8px var(--scene-bubble-glow);
+  pointer-events: none;
+}

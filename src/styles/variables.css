@@ -1,0 +1,43 @@
+/* Font imports - must be first */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&family=Noto+Serif+SC:wght@200&display=swap');
+
+:root {
+  --text-primary: rgba(255, 255, 255, 0.92);
+  --text-secondary: rgba(255, 255, 255, 0.40);
+  --accent: #89b4cc;
+  --accent-warm: #d4976a;
+
+  /* Glass outer frame */
+  --outer-radius: 22px;
+  --inner-radius: 15px;
+  --frame-inset: 8px;
+
+  /* Shadows */
+  --shadow-default:
+    0 1px 2px rgba(0, 0, 0, 0.50),
+    0 4px 16px rgba(0, 0, 0, 0.35),
+    0 16px 48px rgba(0, 0, 0, 0.20);
+  --shadow-hover:
+    0 1px 2px rgba(0, 0, 0, 0.50),
+    0 6px 22px rgba(0, 0, 0, 0.40),
+    0 20px 56px rgba(0, 0, 0, 0.25);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  background: transparent;
+}
+
+body {
+  font-family: 'Noto Serif SC', serif;
+  font-weight: 200;
+  color: var(--text-primary);
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+}

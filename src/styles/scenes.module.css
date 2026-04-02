@@ -1,0 +1,81 @@
+/* Scene-specific CSS variables applied to each widget */
+
+.rain {
+  --scene-border: rgba(100, 150, 200, 0.18);
+  --scene-highlight: linear-gradient(90deg, transparent, rgba(100, 160, 220, 0.22), transparent);
+  --scene-base: rgba(16, 24, 42, 0.48);
+  --scene-frame: rgba(16, 24, 42, 0.18);
+  --scene-tint: rgba(20, 30, 50, 0.20);
+  --scene-bubble: radial-gradient(circle, #6a9ec0, transparent);
+  --scene-bubble-glow: rgba(106, 158, 192, 0.4);
+}
+
+.snow {
+  --scene-border: rgba(180, 200, 225, 0.20);
+  --scene-highlight: linear-gradient(90deg, transparent, rgba(200, 215, 235, 0.26), transparent);
+  --scene-base: rgba(90, 105, 130, 0.35);
+  --scene-frame: rgba(90, 105, 130, 0.14);
+  --scene-tint: rgba(170, 185, 205, 0.10);
+  --scene-bubble: radial-gradient(circle, #c0cee0, transparent);
+  --scene-bubble-glow: rgba(192, 206, 224, 0.4);
+}
+
+.sunset {
+  --scene-border: rgba(200, 150, 100, 0.16);
+  --scene-highlight: linear-gradient(90deg, transparent, rgba(220, 170, 110, 0.20), transparent);
+  --scene-base: rgba(80, 45, 30, 0.32);
+  --scene-frame: rgba(80, 45, 30, 0.12);
+  --scene-tint: rgba(120, 65, 45, 0.12);
+  --scene-bubble: radial-gradient(circle, #d08050, transparent);
+  --scene-bubble-glow: rgba(208, 128, 80, 0.4);
+}
+
+.night {
+  --scene-border: rgba(120, 100, 200, 0.20);
+  --scene-highlight: linear-gradient(90deg, transparent, rgba(140, 120, 220, 0.22), transparent);
+  --scene-base: rgba(12, 10, 32, 0.50);
+  --scene-frame: rgba(12, 10, 32, 0.20);
+  --scene-tint: rgba(15, 12, 38, 0.22);
+  --scene-bubble: radial-gradient(circle, #6858a8, transparent);
+  --scene-bubble-glow: rgba(104, 88, 168, 0.4);
+}
+
+.aurora {
+  --scene-border: rgba(60, 190, 140, 0.18);
+  --scene-highlight: linear-gradient(90deg, transparent, rgba(70, 210, 160, 0.22), transparent);
+  --scene-base: rgba(8, 35, 30, 0.45);
+  --scene-frame: rgba(8, 35, 30, 0.18);
+  --scene-tint: rgba(12, 42, 40, 0.20);
+  --scene-bubble: radial-gradient(circle, #3ab890, transparent);
+  --scene-bubble-glow: rgba(58, 184, 144, 0.4);
+}
+
+.sakura {
+  --scene-border: rgba(190, 150, 165, 0.16);
+  --scene-highlight: linear-gradient(90deg, transparent, rgba(210, 170, 185, 0.20), transparent);
+  --scene-base: rgba(100, 50, 70, 0.30);
+  --scene-frame: rgba(100, 50, 70, 0.12);
+  --scene-tint: rgba(150, 75, 100, 0.10);
+  --scene-bubble: radial-gradient(circle, #d090a8, transparent);
+  --scene-bubble-glow: rgba(208, 144, 168, 0.4);
+}
+
+.mist {
+  --scene-border: rgba(150, 160, 175, 0.18);
+  --scene-highlight: linear-gradient(90deg, transparent, rgba(170, 180, 195, 0.22), transparent);
+  --scene-base: rgba(45, 48, 55, 0.42);
+  --scene-frame: rgba(45, 48, 55, 0.16);
+  --scene-tint: rgba(60, 62, 68, 0.18);
+  --scene-bubble: radial-gradient(circle, #98a4b0, transparent);
+  --scene-bubble-glow: rgba(152, 164, 176, 0.4);
+}
+
+.firefly {
+  --scene-border: rgba(150, 200, 70, 0.16);
+  --scene-highlight: linear-gradient(90deg, transparent, rgba(170, 220, 80, 0.20), transparent);
+  --scene-base: rgba(10, 22, 12, 0.45);
+  --scene-frame: rgba(10, 22, 12, 0.18);
+  --scene-tint: rgba(12, 28, 14, 0.22);
+  --scene-bubble: radial-gradient(circle, #a8c850, transparent);
+  --scene-bubble-glow: rgba(168, 200, 80, 0.4);
+}

@@ -1,0 +1,507 @@
+/* ===== Widget Header ===== */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  flex-shrink: 0;
+}
+
+.headerLabel {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+}
+
+.headerBtns {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.headerBtn {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 13px;
+  cursor: pointer;
+  padding: 2px 4px;
+  border-radius: 4px;
+  transition: color 0.25s, background 0.25s;
+  line-height: 1;
+}
+
+.headerBtn:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* ===== Clock Widget ===== */
+.clockTime {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 36px;
+  letter-spacing: 5px;
+  color: var(--text-primary);
+  line-height: 1.1;
+}
+
+.clockDate {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+.clockGreeting {
+  font-size: 11px;
+  color: var(--accent);
+  opacity: 0.75;
+  margin-top: 10px;
+}
+
+/* ===== Todo Widget ===== */
+.todoInputRow {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 8px;
+  flex-shrink: 0;
+}
+
+.todoInput {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-family: 'Noto Serif SC', serif;
+  font-weight: 200;
+  font-size: 12px;
+  padding: 6px 10px;
+  outline: none;
+  transition: border-color 0.25s;
+}
+
+.todoInput::placeholder {
+  color: var(--text-secondary);
+}
+
+.todoInput:focus {
+  border-color: rgba(137, 180, 204, 0.3);
+}
+
+.todoAddBtn {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 4px 10px;
+  font-size: 14px;
+  transition: color 0.25s, background 0.25s;
+}
+
+.todoAddBtn:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.todoList {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.todoList::-webkit-scrollbar {
+  width: 3px;
+}
+
+.todoList::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+}
+
+.todoItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0;
+  position: relative;
+}
+
+.todoChk {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.25s, border-color 0.25s;
+  padding: 0;
+}
+
+.todoChk:hover {
+  border-color: var(--accent);
+}
+
+.todoChkDone {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.todoText {
+  font-size: 12px;
+  line-height: 2.0;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.todoTextDone {
+  text-decoration: line-through;
+  opacity: 0.4;
+}
+
+.todoDel {
+  opacity: 0;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 11px;
+  padding: 2px 4px;
+  transition: opacity 0.2s, color 0.25s;
+}
+
+.todoItem:hover .todoDel {
+  opacity: 1;
+}
+
+.todoDel:hover {
+  color: #e08080;
+}
+
+/* ===== Quote Widget ===== */
+.quoteDisplay {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 28px;
+}
+
+.quoteMark {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 28px;
+  color: var(--accent);
+  opacity: 0.25;
+  line-height: 1;
+}
+
+.quoteText {
+  font-size: 12px;
+  line-height: 2.1;
+  margin: 6px 0;
+}
+
+.quoteAuthor {
+  font-size: 10px;
+  color: var(--text-secondary);
+  text-align: right;
+}
+
+.quoteEditTrigger {
+  position: absolute;
+  bottom: 8px;
+  right: 12px;
+  font-size: 10px;
+  color: var(--text-secondary);
+  opacity: 0;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.quoteDisplay:hover .quoteEditTrigger {
+  opacity: 1;
+}
+
+/* Quote edit mode */
+.quoteEditForm {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.quoteTextarea {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-family: 'Noto Serif SC', serif;
+  font-weight: 200;
+  font-size: 12px;
+  line-height: 2.0;
+  padding: 8px 10px;
+  outline: none;
+  resize: none;
+}
+
+.quoteTextarea::placeholder {
+  color: var(--text-secondary);
+}
+
+.quoteSourceInput {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-family: 'Noto Serif SC', serif;
+  font-weight: 200;
+  font-size: 11px;
+  padding: 6px 10px;
+  outline: none;
+}
+
+.quoteSourceInput::placeholder {
+  color: var(--text-secondary);
+}
+
+.quoteSaveBtn {
+  align-self: flex-end;
+  background: rgba(137, 180, 204, 0.15);
+  border: 1px solid rgba(137, 180, 204, 0.25);
+  border-radius: 8px;
+  color: var(--accent);
+  cursor: pointer;
+  font-family: 'Noto Serif SC', serif;
+  font-weight: 200;
+  font-size: 11px;
+  padding: 5px 16px;
+  transition: background 0.25s;
+}
+
+.quoteSaveBtn:hover {
+  background: rgba(137, 180, 204, 0.25);
+}
+
+/* ===== Countdown Widget ===== */
+.countdownDisplay {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 28px;
+  align-items: center;
+  text-align: center;
+}
+
+.countdownNumber {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 44px;
+  color: var(--accent-warm);
+  line-height: 1.1;
+}
+
+.countdownUnit {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-left: 2px;
+}
+
+.countdownLabel {
+  font-size: 12px;
+  margin-top: 6px;
+  color: var(--text-primary);
+  opacity: 0.8;
+}
+
+.countdownDate {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+.countdownArrived {
+  font-size: 18px;
+  color: var(--accent-warm);
+}
+
+/* Countdown setup form */
+.countdownForm {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: center;
+}
+
+.countdownFormInput {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-family: 'Noto Serif SC', serif;
+  font-weight: 200;
+  font-size: 12px;
+  padding: 6px 10px;
+  outline: none;
+}
+
+.countdownFormInput::placeholder {
+  color: var(--text-secondary);
+}
+
+.countdownFormInput[type="date"] {
+  color-scheme: dark;
+}
+
+.countdownStartBtn {
+  align-self: center;
+  background: rgba(212, 151, 106, 0.15);
+  border: 1px solid rgba(212, 151, 106, 0.25);
+  border-radius: 8px;
+  color: var(--accent-warm);
+  cursor: pointer;
+  font-family: 'Noto Serif SC', serif;
+  font-weight: 200;
+  font-size: 11px;
+  padding: 5px 16px;
+  transition: background 0.25s;
+}
+
+.countdownStartBtn:hover {
+  background: rgba(212, 151, 106, 0.25);
+}
+
+/* ===== Memo Widget ===== */
+.memoTextarea {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-family: 'Noto Serif SC', serif;
+  font-weight: 200;
+  font-size: 12px;
+  line-height: 2.0;
+  outline: none;
+  resize: none;
+  width: 100%;
+}
+
+.memoTextarea::placeholder {
+  color: var(--text-secondary);
+}
+
+/* ===== Scene Picker ===== */
+.scenePickerWrap {
+  position: relative;
+}
+
+.sceneDropdown {
+  background: rgba(20, 22, 28, 0.88);
+  backdrop-filter: blur(40px) saturate(1.4);
+  -webkit-backdrop-filter: blur(40px) saturate(1.4);
+  border: 0.5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  z-index: 9999;
+  min-width: 100px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.55);
+  animation: dropIn 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.sceneDropdown::-webkit-scrollbar {
+  width: 3px;
+}
+
+.sceneDropdown::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+}
+
+.sceneItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background 0.25s;
+  white-space: nowrap;
+}
+
+.sceneItem:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.sceneItemActive {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.sceneDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.sceneName {
+  font-family: 'Noto Serif SC', serif;
+  font-weight: 200;
+  font-size: 11px;
+  color: var(--text-primary);
+  letter-spacing: 1px;
+}
+
+/* Scene dot colors */
+.sceneDot_rain { background: #6a9ec0; }
+.sceneDot_snow { background: #c0cee0; }
+.sceneDot_sunset { background: #d08050; }
+.sceneDot_night { background: #6858a8; }
+.sceneDot_aurora { background: #3ab890; }
+.sceneDot_sakura { background: #d090a8; }
+.sceneDot_mist { background: #98a4b0; }
+.sceneDot_firefly { background: #a8c850; }
+
+/* ===== Particle burst (todo check) ===== */
+.particleBurst {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 100;
+}
+
+/* ===== Animations ===== */
+@keyframes dropIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
