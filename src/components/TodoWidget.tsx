@@ -90,7 +90,9 @@ export default function TodoWidget({ content }: Props) {
             <button
               className={`${styles.todoChk} ${item.done ? styles.todoChkDone : ''}`}
               onClick={(e) => toggleItem(i, e)}
-            />
+            >
+              {item.done && <span className={styles.todoChkMark}>✓</span>}
+            </button>
             <span
               className={`${styles.todoText} ${item.done ? styles.todoTextDone : ''}`}
             >

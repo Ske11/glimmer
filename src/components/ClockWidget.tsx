@@ -11,7 +11,7 @@ export default function ClockWidget() {
   }, []);
 
   return (
-    <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', paddingBottom: 28 }}>
+    <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', paddingBottom: 32 }}>
       <div className={styles.clockTime}>{formatTime(now)}</div>
       <div className={styles.clockDate}>{formatDate(now)}</div>
       <div className={styles.clockGreeting}>{getGreeting()}</div>

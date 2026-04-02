@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 8px;
+  height: 32px;
   flex-shrink: 0;
 }
 
@@ -74,6 +74,8 @@
 
 .todoInput {
   flex: 1;
+  min-width: 0;
+  box-sizing: border-box;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 8px;
@@ -129,7 +131,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 4px 0;
+  padding: 4px 0 4px 4px;
   position: relative;
 }
 
@@ -143,15 +145,25 @@
   flex-shrink: 0;
   transition: background 0.25s, border-color 0.25s;
   padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .todoChk:hover {
-  border-color: var(--accent);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.todoChkMark {
+  font-size: 8px;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.5);
+  pointer-events: none;
 }
 
 .todoChkDone {
-  background: var(--accent);
-  border-color: var(--accent);
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.35);
 }
 
 .todoText {
@@ -165,7 +177,10 @@
 
 .todoTextDone {
   text-decoration: line-through;
-  opacity: 0.4;
+  text-decoration-color: rgba(255, 255, 255, 0.5);
+  text-decoration-thickness: 1px;
+  opacity: 0.35;
+  color: var(--text-secondary);
 }
 
 .todoDel {
@@ -193,7 +208,18 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-bottom: 28px;
+  padding-bottom: 32px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.quoteDisplay::-webkit-scrollbar {
+  width: 2px;
+}
+
+.quoteDisplay::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 2px;
 }
 
 .quoteMark {
@@ -208,13 +234,15 @@
 .quoteText {
   font-size: 12px;
   line-height: 2.1;
-  margin: 6px 0;
+  margin: 2px 0;
+  white-space: pre-line;
 }
 
 .quoteAuthor {
   font-size: 10px;
   color: var(--text-secondary);
   text-align: right;
+  margin-top: 8px;
 }
 
 .quoteEditTrigger {
@@ -299,7 +327,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-bottom: 28px;
+  padding-bottom: 32px;
   align-items: center;
   text-align: center;
 }
@@ -416,7 +444,7 @@
   backdrop-filter: blur(40px) saturate(1.4);
   -webkit-backdrop-filter: blur(40px) saturate(1.4);
   border: 0.5px solid rgba(255, 255, 255, 0.1);
-  border-radius: 14px;
+  border-radius: 12px;
   padding: 6px;
   display: flex;
   flex-direction: column;
@@ -427,6 +455,8 @@
   animation: dropIn 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
   overflow-y: auto;
   overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
 }
 
 .sceneDropdown::-webkit-scrollbar {

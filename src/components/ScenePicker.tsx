@@ -18,7 +18,7 @@ export default function ScenePicker({ current, onChange }: Props) {
   const updatePos = useCallback(() => {
     if (!btnRef.current) return;
     const rect = btnRef.current.getBoundingClientRect();
-    const margin = 8;
+    const margin = 4;
     const rightPos = window.innerWidth - rect.right;
 
     // Try below first
